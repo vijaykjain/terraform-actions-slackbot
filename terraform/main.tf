@@ -22,8 +22,7 @@ resource "aws_lambda_function" "slackbot_function" {
 
     role = aws_iam_role.lambda_role.arn
 }
- # IAM role which dictates what other AWS services the Lambda function
- # may access.
+ # IAM role AWS services the Lambda function  access.
 resource "aws_iam_role" "lambda_role" {
    name = "role_lambda"
 
@@ -109,8 +108,7 @@ resource "aws_lambda_permission" "apigw" {
    function_name = aws_lambda_function.slackbot_function.function_name
    principal     = "apigateway.amazonaws.com"
 
-   # The "/*/*" portion grants access from any method on any resource
-   # within the API Gateway REST API.
+   # API Gateway REST API.
    source_arn = "${aws_api_gateway_rest_api.apiLambda.execution_arn}/*/*"
 }
 
