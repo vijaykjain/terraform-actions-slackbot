@@ -14,7 +14,7 @@ resource "aws_lambda_function" "slackbot_function" {
     function_name = "slackbot_function"
 
     s3_bucket = "slackbot-demo-repo"
-    s3_key    = "Test.zip"
+    s3_key    = "lambda.zip"
 
     handler = "hello.lambda_handler"
     runtime = "python3.9"
